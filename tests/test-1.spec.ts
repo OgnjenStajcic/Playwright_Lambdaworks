@@ -40,3 +40,9 @@ test('acceptCookies', async ({page}) => {
 
   await click.acceptCookies;
 })
+
+test('dismissCookies', async ({page}) => {
+  const click = new homePage(page);
+
+  await click.dismissCookies;
+})
