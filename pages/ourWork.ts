@@ -9,6 +9,7 @@ export class ourWork {
     bexioText: any;
     themesKingdom: any;
     element: any;
+   
 
 constructor(page){
         this.page = page  
