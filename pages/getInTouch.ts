@@ -1,26 +1,18 @@
-import { expect } from "@playwright/test";
-import { homePage } from "./homePage";
+import { Locator } from "@playwright/test";
 
-export class getInTouch {
+export class GetInTouch {
 
     page: any;
-    inputTextField: any;
+    getInTouch: Locator;
 
     constructor (page){
         this.page = page;
-        this.inputTextField = page.getByPlaceholder('Short description');
+        this.getInTouch = page.locator('a').filter({ hasText: 'Get in touch' });
     }
 
-
-async assertInputField (){
-   await this.page.getInTouch;
-   await expect(this.page.inputTextField).toBeEnabled();
-}
-
-
-
-
-
-
+    async gotoContactForm(){
+        await this.page.goto('https://www.lambdaworks.io');
+        await this.getInTouch.click();
+    }
 
 }
