@@ -1,11 +1,14 @@
 import { Locator } from "@playwright/test";
+import { Header } from "./Header"; 
 
 export class OurWorkFilters {
 
     page: any;
-    ourWorkPage: Locator;
     mobileDevelopment: Locator;
+    exportOnlineTitle: Locator;
+    traderFylesTitle: Locator;
     superPhoneTitle: Locator;
+    themesKingdomTitle: Locator;
     bexioTitle: Locator;
     el3mentTitle: Locator;
     webDevelopment: Locator;
@@ -19,10 +22,37 @@ export class OurWorkFilters {
     openSource: Locator;
     dataEngineering: Locator;
     clearFilters: Locator;
+    nFMeTitle: Locator;
+    bizzItTitle: Locator;
+    novakDjokovicTitle: Locator;
+    maniloTitle: Locator;
+    nagNagTitle: Locator;
+    heraldTitle: Locator;
+    lambertTitle: Locator;
+    shelfieTitle: Locator;
+    zioESTitle: Locator;    
+    everyBiteTitle: Locator;
+    lifeLogsTitle: Locator;
+    knowleTitle: Locator;
+
+    header: Header;
 
     constructor(page){
         this.page = page;
-        this.ourWorkPage = page.getByLabel('Our Work').first();
+        this.header = new Header(page);
+        this.themesKingdomTitle = page.getByRole('link', { name: 'ThemesKingdom' });
+        this.traderFylesTitle = page.getByRole('link', { name: 'TraderFyles' });
+        this.exportOnlineTitle = page.getByRole('link', { name: 'ExportOnline' });
+        this.nFMeTitle = page.getByRole('link', { name: 'NF.Me' });
+        this.bizzItTitle = page.getByRole('link', { name: 'BizzIt' });
+        this.everyBiteTitle = page.getByRole('link', { name: 'EveryBite' });
+        this.novakDjokovicTitle = page.getByRole('link', { name: 'Novak Djokovic Foundation' });
+        this.maniloTitle = page.getByRole('link', { name: 'MANILO' });
+        this.nagNagTitle = page.getByRole('link', { name: 'NagNag' });
+        this.heraldTitle = page.getByRole('link', { name: 'Herald' });
+        this.lambertTitle = page.getByRole('link', { name: 'Lambert' });
+        this.shelfieTitle = page.getByRole('link', { name: 'Shelfie' });
+        this.zioESTitle = page.getByRole('link', { name: 'ZIO ES' });
         this.mobileDevelopment = page.getByText('Mobile development', { exact: true });
         this.superPhoneTitle = page.getByRole('link', { name: 'SuperPhone' });
         this.el3mentTitle = page.getByRole('link', { name: 'el3ment' });
@@ -37,144 +67,125 @@ export class OurWorkFilters {
         this.openSource = page.locator('div:nth-child(9)').first();
         this.dataEngineering = page.locator('span').filter({ hasText: 'Data engineering' });
         this.clearFilters = page.getByText('Clear all filters');
+        this.lifeLogsTitle = page.getByRole('link', { name: 'LifeLogs' });
+        this.bexioTitle = page.getByRole('link', { name: 'bexio' });
+        this.knowleTitle = page.getByRole('link', { name: 'Knowle' });
     }
 
     async mobileDevelopmentFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.mobileDevelopment.click();
     }
 
     async clearMobileDevelopmentFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.mobileDevelopment.click();
         await this.mobileDevelopment.click();
     }
 
     async webDevelopmentFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.webDevelopment.click();
     }
 
     async clearWebDevelopmentFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.webDevelopment.click();
         await this.webDevelopment.click();
     }
 
     async buisnessAnalyticsFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.businessAnalytics.click();
     }
 
     async clearBuisnessAnalyticsFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.businessAnalytics.click();
         await this.businessAnalytics.click();
     }
 
     async AIFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.AI.click();
     }
 
     async clearAIFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.AI.click();
         await this.AI.click();
     }
 
     async infrastructureFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.infrastructure.click();
     }
 
     async clearInfrastructureFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.infrastructure.click();
         await this.infrastructure.click();
     }
 
     async productDisoveryFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.productDiscovery.click();
     }
 
     async clearProductDisoveryFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.productDiscovery.click();
         await this.productDiscovery.click();
     }
 
     async web3Filter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.web3.click();
     }
 
     async clearWeb3Filter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.web3.click();
         await this.web3.click();
     }
 
     async lwProductFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.lwProduct.click();
     }
 
     async clearLwProductFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.lwProduct.click();
         await this.lwProduct.click();
     }
 
     async openSourceFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.openSource.click();
     }
 
     async clearOpenSourceFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.openSource.click();
         await this.openSource.click();
     }
 
     async dataEngineeringFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.dataEngineering.click();
     }
 
     async clearDataEngineeringFilter(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.dataEngineering.click();
         await this.dataEngineering.click();
     }
 
     async clearAllFilters(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.ourWorkPage.click();
+        await this.header.ourWork.click();
         await this.AI.click();
         await this.lwProduct.click();
         await this.clearFilters.click();
     }
-
 }

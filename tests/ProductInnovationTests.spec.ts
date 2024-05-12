@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { ProductInnovation } from "../pages/ProductInnovation";
 
+test.beforeEach(async ({page}) => {
+    await page.goto('https://www.lambdaworks.io');
+  });
+
 test('User is able to see carousel 1', async ({page}) => {
     const product = new ProductInnovation(page);
     await product.seeCarousel1();

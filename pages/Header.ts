@@ -19,30 +19,23 @@ constructor(page){
     }
 
 async gotoOurWorkPage (){
-    await this.page.goto('https://www.lambdaworks.io');
     await this.ourWork.click();
 }
 
 async gotoCareersPage(){
-    await this.page.goto('https://www.lambdaworks.io/');
     await this.careers.click();
 }
 
 async gotoProductInnovationPage(){
-    await this.page.goto('https://www.lambdaworks.io/');
     await this.productInnovation.click();
 }
 
 async gotoTechExcellencePage(){
-    await this.page.goto('https://www.lambdaworks.io/');
     await this.techExcellence.click();
 }
 
 async gotoHomePage(){
-    await this.page.goto('https://www.lambdaworks.io/careers');
     await this.lambdaWorks.click();
-}
-
-
+    }
 }
 

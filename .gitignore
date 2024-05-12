@@ -18,8 +18,15 @@ reports/cucumber_report.json
 .npm
 .npmrc
 
-# dotenv environment variables file
+# dotenv environment variab
+les file
 .env
 
 # vscode settings
 .vscode
+
+tests-examples
+
+test-results
+
+playwright-report

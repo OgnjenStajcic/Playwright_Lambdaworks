@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { TechExcellence} from "../pages/TechExcellence";
 
+test.beforeEach(async ({page}) => {
+    await page.goto('https://www.lambdaworks.io');
+  });
+
 test('User is able to go to Tech Radar page', async ({page}) => {
     const tech = new TechExcellence(page);
     const [newTab] = await Promise.all([

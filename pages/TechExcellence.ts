@@ -1,10 +1,11 @@
 import { Locator} from "@playwright/test";
+import { Header } from "./Header";
 
 export class TechExcellence{
 
     page: any;
+    header: Header;
     techRadar: Locator;
-    techExcellence: Locator;
     carousel1: Locator;
     carousel2: Locator;
     carousel3: Locator;
@@ -15,7 +16,7 @@ export class TechExcellence{
 
     constructor(page){
         this.page = page;
-        this.techExcellence = page.getByLabel('Tech Excellence').first();
+        this.header = new Header(page);
         this.techRadar = page.getByRole('button', { name: 'Go to Tech Radar' });
         this.carousel1 = page.getByRole('button', { name: '01' });
         this.carousel2 = page.getByRole('button', { name: '02' });
@@ -27,33 +28,27 @@ export class TechExcellence{
     }
 
     async gotoTechRadar(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.techExcellence.click();
+        await this.header.techExcellence.click();
         await this.techRadar.click();
     }
 
     async carousel1Click(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.techExcellence.click();
+        await this.header.techExcellence.click();
         await this.carousel1.click();
     }
 
     async carousel2Click(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.techExcellence.click();
+        await this.header.techExcellence.click();
         await this.carousel2.click();
     }
 
     async carousel3Click(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.techExcellence.click();
+        await this.header.techExcellence.click();
         await this.carousel3.click();
     }
 
     async gotoContactPage(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.techExcellence.click();
+        await this.header.techExcellence.click();
         await this.letsTalk.click();
     }
-
 }

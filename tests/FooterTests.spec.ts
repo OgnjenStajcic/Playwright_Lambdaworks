@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { Footer } from "../pages/Footer";
 
+test.beforeEach(async ({page}) => {
+    await page.goto('https://www.lambdaworks.io');
+  });
+
 test ('User is able to go to Product Innovation page from footer', async ({page}) => {
     const footer = new Footer(page);
     await footer.gotoProductInnovationFooter();

@@ -1,9 +1,10 @@
 import { Locator } from "@playwright/test";
+import { Header } from "./Header";
 
 export class ProductInnovation{
 
     page: any;
-    productInnovation: Locator;
+    header: Header;
     carousel1: Locator;
     el3ment: Locator;
     carousel2: Locator;
@@ -16,7 +17,7 @@ export class ProductInnovation{
 
     constructor(page){
         this.page = page;
-        this.productInnovation = page.getByLabel('Product Innovation').first();
+        this.header = new Header(page);
         this.carousel1 = page.getByRole('button', { name: '01' });
         this.el3ment = page.getByRole('button', { name: 'el3ment' });
         this.carousel2 = page.getByRole('button', { name: '02' });
@@ -29,36 +30,27 @@ export class ProductInnovation{
     }
 
     async seeCarousel1(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.productInnovation.click();
+        await this.header.productInnovation.click();
         await this.carousel1.click();
     }
 
     async seeCarousel2(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.productInnovation.click();
+        await this.header.productInnovation.click();
         await this.carousel2.click();
     }
 
     async seeCarousel3(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.productInnovation.click();
+        await this.header.productInnovation.click();
         await this.carousel3.click();
     }
 
     async seeCarousel4(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.productInnovation.click();
+        await this.header.productInnovation.click();
         await this.carousel4.click();
     }
 
     async gotoContactForm(){
-        await this.page.goto('https://www.lambdaworks.io');
-        await this.productInnovation.click();
+        await this.header.productInnovation.click();
         await this.letsTalk.click();
     }
-
-
-
-
 }

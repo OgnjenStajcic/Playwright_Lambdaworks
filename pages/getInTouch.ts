@@ -11,8 +11,6 @@ export class GetInTouch {
     }
 
     async gotoContactForm(){
-        await this.page.goto('https://www.lambdaworks.io');
         await this.getInTouch.click();
     }
-
 }
