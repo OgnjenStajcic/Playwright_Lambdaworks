@@ -1,28 +1,27 @@
-import { Locator } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
-export class CookiesModal{
+export class CookiesModal {
+  page: Page;
+  dismiss: Locator;
+  agreeCheckbox: Locator;
+  agreeText: Locator;
 
-    page: any;
-    dismiss: Locator;
-    agreeCheckbox: Locator;
-    agreeText: Locator;
+  constructor(page) {
+    this.page = page;
+    this.dismiss = page.getByText("Dismiss");
+    this.agreeCheckbox = page.getByLabel("I agree");
+    this.agreeText = page.getByText("I agree");
+  }
 
-    constructor(page){
-        this.page = page;
-        this.dismiss = page.getByText('Dismiss');
-        this.agreeCheckbox = page.getByLabel('I agree');
-        this.agreeText = page.getByText('I agree');
-    }
+  async dismissCookies() {
+    await this.dismiss.click();
+  }
 
-    async dismissCookies(){
-        await this.dismiss.click();
-    }
+  async agreeCookiesCheckbox() {
+    await this.agreeCheckbox.click();
+  }
 
-    async agreeCookiesCheckbox(){
-        await this.agreeCheckbox.click();
-    }
-
-    async agreeCookiesText(){
-        await this.agreeText.click();
-    }
+  async agreeCookiesText() {
+    await this.agreeText.click();
+  }
 }

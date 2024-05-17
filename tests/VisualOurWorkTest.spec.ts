@@ -1,8 +1,8 @@
-import { test, expect } from '@playwright/test';
-import { Header } from '../pages/header';
+import { test, expect } from "@playwright/test";
+import { Header } from "../pages/Header";
 
-test('User is able to screenshot our workpage', async ({page}) => {
-    const projects = new Header(page);
-    await projects.gotoOurWorkPage();
-    await expect(page).toHaveScreenshot();
-})
+test("User is able to screenshot our workpage", async ({ page }) => {
+  const projects = new Header(page);
+  await projects.gotoOurWorkPage();
+  await expect(page).toHaveScreenshot();
+});
