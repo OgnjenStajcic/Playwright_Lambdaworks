@@ -7,23 +7,9 @@ export class Header {
   productInnovation: Locator;
   techExcellence: Locator;
   lambdaWorks: Locator;
-  awesome: Locator;
-  projectList: Locator;
-  projectPicture: Locator;
-  animation1: Locator;
-  animation2: Locator;
-  leftHalf: Locator;
-  rightHalf: Locator;
 
   constructor(page) {
     this.page = page;
-    this.rightHalf = page.getByText("of 8Read all our reviews on Clutch");
-    this.leftHalf = page.getByText("Click+DragLambdaWorks has");
-    this.projectList = page.locator(".clientListStyle__StyledClientList-sc-et9qtx-5");
-    this.projectPicture = page.getByRole("link", { name: "Case studies" });
-    this.animation1 = page.locator("#reachPotentialVector");
-    this.animation2 = page.locator("#sparkYourInnovationVector");
-    this.awesome = page.getByText("awesome");
     this.ourWork = page.getByLabel("Our Work").first();
     this.careers = page.getByLabel("Careers").first();
     this.productInnovation = page.getByLabel("Product Innovation").first();

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { Header } from "../pages/Header";
+import { HomePageHiddenElements } from "../pages/HomePageHiddenElements";
 
 test.beforeEach(async ({ page }, testInfo) => {
   testInfo.setTimeout(testInfo.timeout + 50000);
@@ -7,7 +7,17 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 
 test("User is able to screenshot home page", async ({ page }) => {
-  const projects = new Header(page);
-  //await projects.gotoHomePage();
-  await expect(page).toHaveScreenshot({ fullPage: true, maxDiffPixels: 100, mask: [projects.awesome] });
+  const element = new HomePageHiddenElements(page);
+  await expect(page).toHaveScreenshot({
+    fullPage: true,
+    mask: [
+      element.awesome,
+      element.animation1,
+      element.animation2,
+      element.leftHalf,
+      element.rightHalf,
+      element.projectList,
+      element.projectPicture,
+    ],
+  });
 });
